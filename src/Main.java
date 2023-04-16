@@ -20,8 +20,8 @@ public class Main {
 
     public static int countGoodTriplets(int[] arr, int a, int b, int c) {
         int res = 0;
-        for (int i = 0; i < arr.length ; i++) {
-            for (int j = i + 1; j < arr.length ; j++) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
                 if (Math.abs(arr[i] - arr[j]) <= a) {
                     for (int k = j + 1; k < arr.length; k++) {
                         if (Math.abs(arr[j] - arr[k]) <= b && Math.abs(arr[i] - arr[k]) <= c) {
@@ -34,8 +34,23 @@ public class Main {
         return res;
     }
 
+    public  static int[] topKFrequent(int[] nums, int k) {
+        SortedMap<Integer, Integer> map = new TreeMap<>();
+        for (int num : nums) {
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num) + 1);
+            } else {
+                map.put(num, 1);
+            }
+        }
+        int[] res = new int[k];
+        System.out.println(map.toString());
+
+        return null;
+    }
+
     public static void main(String[] args) {
-        System.out.println(countGoodTriplets(new int[]{3, 0, 1, 1, 9, 7}, 7, 2, 3));
+        System.out.println(Arrays.toString(topKFrequent(new int[]{5,2,5,3,5,3,1,1,3}, 2)));
 
     }
 
